@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+	DeferCall1()
 	DeferCall()
 }
 
@@ -16,8 +17,19 @@ func DeferCall() {
 	fmt.Println("D")
 }
 
+func DeferCall1() {
+	if true {
+		defer fmt.Println(1)
+	} else {
+		defer fmt.Println(2)
+	}
+	fmt.Println(3)
+}
+
 /*
 输出结果：
+3
+1
 C
 B
 A
