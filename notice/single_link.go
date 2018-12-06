@@ -58,5 +58,4 @@ func main() {
 	InsertHeroNode(head, hero2)
 	InsertHeroNode(head, hero3)
 	ListHeroNode(head)
-
 }
