@@ -1,0 +1,34 @@
+package main
+
+import "fmt"
+
+type students struct {
+	name string
+}
+
+func main() {
+	s := students{}
+	var f float64 = 0.08
+	InputType("name",57,true,f,s)
+}
+
+func InputType(items ...interface{}) {
+	for i, v := range items {
+		switch v.(type) {
+		case bool:
+			fmt.Printf("第%d参数是 bool类型， 值为：%v\n",i,v)
+		case string:
+			fmt.Printf("第%d参数是 string类型， 值为：%v\n",i,v)
+		case float32:
+			fmt.Printf("第%d参数是 float32类型， 值为：%v\n",i,v)
+		case float64:
+			fmt.Printf("第%d参数是 float64类型， 值为：%v\n",i,v)
+		case students:
+			fmt.Printf("第%d参数是 student类型， 值为：%v\n",i,v)
+		case int,int32:
+			fmt.Printf("第%d参数是 int int32类型， 值为：%v\n",i,v)
+		default:
+			fmt.Printf("第%d参数是 未知类型， 值为：%v\n",i,v)
+		}
+	}
+}
