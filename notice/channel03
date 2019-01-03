@@ -2,3 +2,7 @@
 //channel 支持 for-range的方式进行遍历，需要注意：
 //当管道没有关闭，进行遍历的时候，会出现deadlock
 //当管道关闭，进行遍历的时候，不会出现deadlock
+
+// 可以声明只读channel和只写channel
+fun send(ch chan<- int) {}  // ch 在函数里面只能写
+fun receive(ch <-chan int){} // ch 在函数里面只能读
