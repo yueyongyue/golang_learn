@@ -4,5 +4,6 @@
 //当管道关闭，进行遍历的时候，不会出现deadlock
 
 // 可以声明只读channel和只写channel
-fun send(ch chan<- int) {}  // ch 在函数里面只能写
+var ch = make(chan<- int)
+fun send(ch chan<- int) {}  // ch 在函数里面只能写   如果 a := <- ch 会报错 Invalid operation: <- ch (receive from send-only type chan<- int)
 fun receive(ch <-chan int){} // ch 在函数里面只能读
