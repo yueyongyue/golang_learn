@@ -464,28 +464,24 @@ accesses, where the other computations are more significant than the `defer`.
 
 ### Channel Size is One or None
 
-Channels should usually have a size of one or be unbuffered. By default, 
-channels are unbuffered and have a size of zero. Any other size
-must be subject to a high level of scrutiny. Consider how the size is
-determined, what prevents the channel from filling up under load and blocking
-writers, and what happens when this occurs.
+Channel通常应该有一个大小，或者没有缓冲。默认情况下，通道是无缓冲的，大小为0。 任何其他大小都必须经过高度审查。 考虑大小是如何确定的，什么可以防止通道在负载和阻塞写入程序时填满，以及发生这种情况时会发生什么。
 
 <table>
-<thead><tr><th>Bad</th><th>Good</th></tr></thead>
+<thead><tr><th>坏</th><th>好</th></tr></thead>
 <tbody>
 <tr><td>
 
 ```go
-// Ought to be enough for anybody!
+// 对任何人来说都应该足够了!
 c := make(chan int, 64)
 ```
 
 </td><td>
 
 ```go
-// Size of one
+// 大小为1
 c := make(chan int, 1) // or
-// Unbuffered channel, size of zero
+// 无缓存channel, 大小为0
 c := make(chan int)
 ```
 
